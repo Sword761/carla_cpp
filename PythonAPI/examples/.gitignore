@@ -1,1 +1,13 @@
-cache
+# 定义一个字典作为缓存，用于存储一些计算结果或者频繁访问的数据，以避免重复计算或查询
+cache = {}  
+
+def get_data(key):
+    if key in cache:
+        # 如果键在缓存中存在，说明之前已经获取过对应的数据，直接从缓存中返回，提高效率
+        return cache[key]
+    else:
+        # 若键不在缓存中，需要去执行实际的数据获取操作（这里假设调用某个函数获取数据）
+        data = fetch_data_from_source(key)
+        # 将获取到的数据存入缓存，方便下次使用同样的键查询时能快速获取
+        cache[key] = data
+        return datacache
